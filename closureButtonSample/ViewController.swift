@@ -31,8 +31,9 @@ class ViewController: UIViewController {
         let button = ClosureButton(frame: CGRectMake(0, 0, 100, 40))
         button.layer.position = self.view.center
         button.backgroundColor = UIColor.blackColor()
-        button.dispatchOnTouchUpInside() { button in
+        button.dispatchOnTouchUpInside() {[unowned self] button in
             print("touch")
+            self.view.backgroundColor = UIColor.redColor()
         }
         self.view.addSubview(button)
     }
